@@ -15,10 +15,39 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+
+            $table->string('user_name')->nullable()->comment('اسم المستخدم');
+            $table->string('password')->nullable();
+
+
+            $table->string('logo')->nullable();
+            $table->string('ip_address')->nullable();
+
+            $table->enum('access_permission',['inside_only','outside'])
+                ->default('inside_only')
+                ->nullable();
+
+            $table->enum('user_type',['admin','cashier'])
+                ->default('admin')
+                ->nullable();
+
+            $table->enum('is_block',['blocked','not_blocked'])
+                ->default('not_blocked')
+                ->nullable();
+
+            $table->enum('is_login',['connected','not_connected'])
+                ->default('not_connected')
+                ->nullable();
+
+            $table->integer('logout_time')->nullable();
+
+            $table->string('forget_password_code')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
         });

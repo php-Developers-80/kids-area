@@ -2,6 +2,10 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Admin;
+use App\Http\Middleware\CustomMiddleWare\PermissionMiddleware;
+use App\Http\Middleware\JsonifyHttpRequest;
+use App\Http\Middleware\Lang;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -41,6 +45,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             'throttle:api',
+            JsonifyHttpRequest::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -62,5 +67,9 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        //my Middleware
+        'admin' =>Admin::class ,
+        'Lang' =>Lang::class,
+        'permission' => PermissionMiddleware::class,
     ];
 }

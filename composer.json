@@ -10,9 +10,17 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "pusher/pusher-php-server": "^4.1",
+        "a6digital/laravel-default-profile-image": "^2.0",
+        "adnane/laravel-speaks-arabic": "^1.0",
+        "spatie/laravel-activitylog": "^3.16",
+        "spatie/laravel-permission": "^3.13",
+        "yajra/laravel-datatables-oracle": "~9.0",
+        "yoeunes/toastr": "^1.2"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.10",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
@@ -25,7 +33,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        }, "files":[
+            "app/Helper/helper.php",
+            "app/Helper/GoogleMaps.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

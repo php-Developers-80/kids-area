@@ -13,6 +13,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        //---------  insert basic user account  -----------
+        $user = \App\Models\User::create([
+            'name' => "admin",
+            'user_name' => "admin",
+            'user_type' => "admin",
+            'password' => bcrypt(123456),
+        ]);
+
+        //---------  insert Settings of app  -----------
+
+        \DB::table('settings')->insert([
+            'ar_title' => "Kids area",
+        ]);        // \App\Models\User::factory(10)->create();
     }
 }

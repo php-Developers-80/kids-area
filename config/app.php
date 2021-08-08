@@ -175,6 +175,13 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //my providers
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Yoeunes\Toastr\ToastrServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+        A6digital\Image\DefaultProfileImageServiceProvider::class,
+        Adnane\Arabic\ArabicServiceProvider::class,
+
     ],
 
     /*
@@ -228,7 +235,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        //my aliases
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Arabic' => Adnane\Arabic\Arabic::class,
     ],
 
 ];
