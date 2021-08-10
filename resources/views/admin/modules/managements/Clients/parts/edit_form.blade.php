@@ -12,8 +12,8 @@
     <div class="row">
 
         <div class="col-lg-6 col-md-6  mb-3">
-            <label class="label mb-2 " for="name"> إسم العميل </label>
-            <input readonly type="text"  name="name" value="{{$client->name}}" class="form-control" data-validation="required">
+            <label class="label mb-2 " for="name"> اسم ولى الأمر </label>
+            <input  type="text"  name="name" value="{{$client->name}}" class="form-control" data-validation="required">
         </div>
 
 

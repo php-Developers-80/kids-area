@@ -15,7 +15,7 @@
 @endsection
 
 @section('page-links')
-{{--    @include('admin.modules.Sales.routingSales')--}}
+    @include('admin.modules.managements.routingManagment')
     <li class="breadcrumb-item active">     كل العملاء </li>
 @endsection
 

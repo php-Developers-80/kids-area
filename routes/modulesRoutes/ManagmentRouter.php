@@ -41,3 +41,15 @@ Route::resource('customers',
 Route::delete('customers/delete/bulk',
     'Modules\Managment\AdminCustomerController@delete_all')
     ->name('customers.delete.bulk');
+
+
+
+
+Route::resource('orders',
+    'Modules\Managment\AdminOrderController');
+
+Route::delete('orders/delete/bulk',
+    'Modules\Managment\AdminOrderController@delete_all')
+    ->name('orders.delete.bulk');
+Route::post('ordersFilter','Modules\Managment\AdminOrderController@filter')
+    ->name('orders.filter');

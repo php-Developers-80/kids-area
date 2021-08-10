@@ -140,8 +140,9 @@
                     icon: '<i class="icon-sentiment_satisfied"></i>',
                     delay:2000,
                 });
+
                 window.setTimeout(function() {
-                    window.location.href='{{route('admin.dashboard')}}';
+                    window.location.href=data.router;
                 }, 2000);
             },
             error: function (data) {

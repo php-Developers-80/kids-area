@@ -54,18 +54,27 @@ class AdminLoginController extends Controller
             'user_name'   => 'required',
             'password' => 'required|min:2'
         ]);
+
         //check the admin auth
         $rememberme = request('remember_me') == 1?true:false;
         if (auth()->attempt(['user_name' => request('user_name'), 'password' => request('password')], $rememberme)) {
             $user = auth()->user();
-            $user->update([
-                'is_login'=>'connected',
-                'logout_time'=>null
-            ]);
+
+            //check if the user not blacked
+            if (!$this->checkIfSoftDelete($user)) {
+                $user->update([
+                    'is_login'=>'not_connected',
+                    'logout_time'=>time()
+                ]);
+                auth()->logout();
+                return response(['message'=>'data'],500);
+            }
+
+            $user->update(['is_login'=>'connected', 'logout_time'=>null]);
 
             return response([
                 'message'=>'data',
-                'router'=>$user->user_type != 'admin'?route('admin.dashboard'):route('admin.dashboard')
+                'router'=>$user->user_type != 'admin'?route('cashier.index'):route('admin.dashboard')
                 ],200);
         }
         //invalid data
@@ -80,10 +89,7 @@ class AdminLoginController extends Controller
     public function logout(Request $request)
     {
         $user = auth()->user();
-        $user->update([
-           'is_login'=>'not_connected',
-           'logout_time'=>time()
-        ]);
+        $user->update(['is_login'=>'not_connected', 'logout_time'=>time()]);
         auth()->logout();
         return redirect()->route('login');
     }

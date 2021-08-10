@@ -86,6 +86,48 @@ if (!function_exists('checkAdminHavePermission')) {
 }
 
 
+if (!function_exists('nameDays')) {
+   function nameDays($nameday)
+   {
+
+       switch($nameday) {
+
+           case "Saturday":
+               $nameday = "ألسبت";
+               break;
+
+
+           case "Sunday":
+               $nameday = "الأحد";
+               break;
+
+           case "Monday":
+               $nameday = "الإثنين";
+               break;
+
+           case "Tuesday":
+               $nameday = "الثلاثاء";
+               break;
+
+           case "Wednesday":
+               $nameday = "الأربعاء";
+               break;
+
+           case "Thursday":
+               $nameday = "الخميس";
+               break;
+
+
+           case "Friday":
+               $nameday = "الجمعة";
+               break;
+
+
+       }
+
+       return $nameday;
+   }
+}
 if (!function_exists('delete_file')) {
     function delete_file($file) {
         Storage::delete('/public/' .'uploads/'.$file);

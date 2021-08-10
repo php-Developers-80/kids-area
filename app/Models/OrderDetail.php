@@ -9,4 +9,11 @@ class OrderDetail extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function son()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
+
 }

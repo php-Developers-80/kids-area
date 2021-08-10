@@ -20,12 +20,12 @@ class AdminAddOnsController extends Controller
 
     public function __construct()
     {
-//        $this->middleware([('permission:users index,web')])->only(['index']);
-//        $this->middleware([('permission:usersAdding,web')])->only(['create']);
-//        $this->middleware([('permission:usersEditing,web')])->only(['edit']);
-//        $this->middleware([('permission:usersSingleDeleting,web')])->only(['destroy']);
-//        $this->middleware([('permission:usersMultiDeleting,web')])->only(['delete_all']);
-//        $this->middleware([('permission:usersIsBlocking,web')])->only(['changeBlock']);
+        $this->middleware([('permission:addOnsIndex,web')])->only(['index']);
+        $this->middleware([('permission:addOnsAdding,web')])->only(['create']);
+        $this->middleware([('permission:addOnsEditing,web')])->only(['edit']);
+        $this->middleware([('permission:addOnsSingleDeleting,web')])->only(['destroy']);
+        $this->middleware([('permission:addOnsMultiDeleting,web')])->only(['delete_all']);
+        $this->middleware([('permission:addOnsShowHidden,web')])->only(['changeStatus']);
     }
 
     /**

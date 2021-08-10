@@ -16,7 +16,7 @@
 @endsection
 
 @section('page-links')
-{{--    @include('admin.modules.system-settings.routingSettingBasic')--}}
+    @include('admin.modules.managements.routingManagment')
     <li class="breadcrumb-item active">     كل التذاكر </li>
 @endsection
 

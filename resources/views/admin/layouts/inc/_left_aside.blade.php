@@ -31,7 +31,13 @@
                     <span class="hide-menu">القائمة الرئيسية</span>
                 </li>--}}
 
-
+                <li   class="sidebar-item">
+                    <a class="sidebar-link  waves-effect waves-dark" href="{{route('admin.dashboard')}}"
+                       aria-expanded="false">
+                        <i class="fas fa-home"></i>
+                        <span class="hide-menu">الرئيسية</span></span>
+                    </a>
+                </li>
                 @foreach(dynamic_sliders() as $slider)
                     <li style="{{$slider->is_shown == "hidden" || !checkAdminHavePermission($slider->permission_name) ?"display:none;":""}}"  class="sidebar-item">
                         <a class="sidebar-link  waves-effect waves-dark" href="{{$slider->sub_dynamic_slider->count()>0?route('routingBasics.show',$slider->id):route($slider->route_link)}}"

@@ -126,5 +126,6 @@ class AdminProfileController extends Controller
     public function destroy($id)
     {
         //
-    }
-}
+    }//end fun
+
+}//end class

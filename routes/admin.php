@@ -44,6 +44,7 @@ Route::group(['prefix' => 'admin'], function () {
 
         require __DIR__.'/modulesRoutes/SystemRouter.php';
         require __DIR__.'/modulesRoutes/ManagmentRouter.php';
+        require __DIR__.'/modulesRoutes/CashierRouter.php';
 
 
 

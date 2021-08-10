@@ -18,12 +18,11 @@ class AdminCustomerController extends Controller
 
     public function __construct()
     {
-//        $this->middleware([('permission:client index,web')])->only(['index']);
-//        $this->middleware([('permission:clientAdding,web')])->only(['create']);
-//        $this->middleware([('permission:clientEditing,web')])->only(['edit']);
-//        $this->middleware([('permission:clientSingleDeleting,web')])->only(['destroy']);
-//        $this->middleware([('permission:clientMultiDeleting,web')])->only(['delete_all']);
-//
+        $this->middleware([('permission:clientsIndex,web')])->only(['index']);
+        $this->middleware([('permission:clientsAdding,web')])->only(['create']);
+        $this->middleware([('permission:clientsEditing,web')])->only(['edit']);
+        $this->middleware([('permission:clientsSingleDeleting,web')])->only(['destroy']);
+        $this->middleware([('permission:clientsMultiDeleting,web')])->only(['delete_all']);
     }
 
     /**

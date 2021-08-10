@@ -11,7 +11,7 @@
     <div class="row">
 
         <div class="col-lg-6 col-md-6  mb-3">
-            <label class="label mb-2 " for="name"> إسم العميل </label>
+            <label class="label mb-2 " for="name"> إسم ولى الأمر </label>
             <input type="text"  name="name" value="" class="form-control" data-validation="required">
         </div>
 
