@@ -137,7 +137,7 @@
 
 <body >
 <div >
-    <button id="printId" class="btn btn-success" onclick="">طباعة</button>
+    <button id="printId" class="btn btn-success" onclick="window.print()">طباعة</button>
 </div>
 <div class="print">
     <div class="container ">
