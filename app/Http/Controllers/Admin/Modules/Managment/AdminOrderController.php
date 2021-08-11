@@ -59,6 +59,19 @@ class AdminOrderController extends Controller
                 ->addColumn('name', function ($order) {
                     return $order->customer? $order->customer->name:"";
                 })
+                ->addColumn('ticket_time', function ($order) {
+                    return $order->ticket? ($order->ticket->minutes_count) . '  دقيقة  ':0;
+                })
+
+                ->editColumn('started_at', function ($order) {
+                    return date("h:i",strtotime($order->started_at));
+                })
+                ->editColumn('finished_at', function ($order) {
+                    return date("h:i",strtotime($order->finished_at));
+                })
+                ->addColumn('sons_names', function ($order) {
+                    return implode(" - ",$order->sons_names()->pluck('name')->toArray());
+                })
 
                 ->addColumn('phone', function ($order) {
                     return $order->customer? $order->customer->phone:"";
@@ -79,7 +92,7 @@ class AdminOrderController extends Controller
 
                     return " <a  target='_blank' class='btn mb-2 btn-secondary ' href='" . route('cashier.show',$order->id) . "'> <i class='fad fa-eye'></i></a>
                    <button class='btn mb-2 btn-danger  delete' id='" . $order->id . "'><i class='fad fa-trash'></i> </button>";
-                })->rawColumns(['actions','delete_all','created_at','name','phone','creator'])->make(true);
+                })->rawColumns(['actions','delete_all','created_at','name','phone','creator','ticket_time','started_at','finished_at','sons_names'])->make(true);
 
         }//end request
         $customers = Customer::whereNull('parent_id')->get();
@@ -222,6 +235,20 @@ class AdminOrderController extends Controller
                 return $order->customer? $order->customer->phone:"";
             })
 
+            ->addColumn('ticket_time', function ($order) {
+                return $order->ticket? ($order->ticket->minutes_count) . '  دقيقة  ':0;
+            })
+
+            ->editColumn('started_at', function ($order) {
+                return date("h:i",strtotime($order->started_at));
+            })
+            ->editColumn('finished_at', function ($order) {
+                return date("h:i",strtotime($order->finished_at));
+            })
+            ->addColumn('sons_names', function ($order) {
+                return implode(" - ",$order->sons_names()->pluck('name')->toArray());
+            })
+
             ->addColumn('creator', function ($order) {
                 return $order->creator? $order->creator->name:"";
             })
@@ -237,7 +264,7 @@ class AdminOrderController extends Controller
 
                 return " <a  target='_blank' class='btn mb-2 btn-secondary ' href='" . route('cashier.show',$order->id) . "'> <i class='fad fa-eye'></i></a>
                    <button class='btn mb-2 btn-danger  delete' id='" . $order->id . "'><i class='fad fa-trash'></i> </button>";
-            })->rawColumns(['actions','delete_all','created_at','name','phone','creator'])->make(true);
+            })->rawColumns(['actions','delete_all','created_at','name','phone','creator','ticket_time','started_at','finished_at','sons_names'])->make(true);
 
 
 

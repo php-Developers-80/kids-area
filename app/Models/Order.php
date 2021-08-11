@@ -94,6 +94,11 @@ class Order extends Model
         return $this->belongsToMany(AddOn::class,'order_add_ons','order_id','add_on_id');
     }
 
+    public function sons_names()
+    {
+        return $this->belongsToMany(Customer::class,'order_details','order_id','son_id');
+    }
+
     public function orderDetails()
     {
         return $this->hasMany(OrderDetail::class);

@@ -39,8 +39,8 @@
                     <div class="card-body">
 
 
-                        <div class="table-responsive">
-                            <table id="basicExample" class="table  table-bordered">
+                        <div class="table-responsive" style="overflow-y: scroll">
+                            <table id="basicExample" class="table  table-bordered" >
 
                                 <thead>
                                 <tr>
@@ -51,6 +51,10 @@
                                     <th>اسم ولى الأمر </th>
                                     <th>رقم الهاتف </th>
                                     <th>الصافى </th>
+                                    <th>المدة </th>
+                                    <th>وقت الدخول </th>
+                                    <th>وقت الخروج </th>
+                                    <th>الأبناء </th>
                                     <th>اسم الكاشير </th>
                                     <th>وقت الإضافة</th>
                                     <th>التحكم</th>
@@ -228,6 +232,10 @@
                 {"data": "name",   orderable: true,searchable: true},
                 {"data": "phone",   orderable: true,searchable: true},
                 {"data": "total_cost",   orderable: true,searchable: true},
+                {"data": "ticket_time",   orderable: true,searchable: true},
+                {"data": "started_at",   orderable: true,searchable: true},
+                {"data": "finished_at",   orderable: true,searchable: true},
+                {"data": "sons_names",   orderable: true,searchable: true},
                 {"data": "creator",   orderable: true,searchable: true},
                 {"data": "created_at", searchable: true},
                 {"data": "actions", orderable: false, searchable: false}
@@ -421,11 +429,16 @@
                         'csrf-token':"{{ csrf_token() }}",
                     }
                 },  "columns": [
+
                     {"data": "delete_all", orderable: false, searchable: false},
                     {"data": "id",   orderable: true,searchable: true},
                     {"data": "name",   orderable: true,searchable: true},
                     {"data": "phone",   orderable: true,searchable: true},
                     {"data": "total_cost",   orderable: true,searchable: true},
+                    {"data": "ticket_time",   orderable: true,searchable: true},
+                    {"data": "started_at",   orderable: true,searchable: true},
+                    {"data": "finished_at",   orderable: true,searchable: true},
+                    {"data": "sons_names",   orderable: true,searchable: true},
                     {"data": "creator",   orderable: true,searchable: true},
                     {"data": "created_at", searchable: true},
                     {"data": "actions", orderable: false, searchable: false}
@@ -525,6 +538,10 @@
                     {"data": "name",   orderable: true,searchable: true},
                     {"data": "phone",   orderable: true,searchable: true},
                     {"data": "total_cost",   orderable: true,searchable: true},
+                    {"data": "ticket_time",   orderable: true,searchable: true},
+                    {"data": "started_at",   orderable: true,searchable: true},
+                    {"data": "finished_at",   orderable: true,searchable: true},
+                    {"data": "sons_names",   orderable: true,searchable: true},
                     {"data": "creator",   orderable: true,searchable: true},
                     {"data": "created_at", searchable: true},
                     {"data": "actions", orderable: false, searchable: false}
@@ -596,6 +613,10 @@
                     {"data": "name",   orderable: true,searchable: true},
                     {"data": "phone",   orderable: true,searchable: true},
                     {"data": "total_cost",   orderable: true,searchable: true},
+                    {"data": "ticket_time",   orderable: true,searchable: true},
+                    {"data": "started_at",   orderable: true,searchable: true},
+                    {"data": "finished_at",   orderable: true,searchable: true},
+                    {"data": "sons_names",   orderable: true,searchable: true},
                     {"data": "creator",   orderable: true,searchable: true},
                     {"data": "created_at", searchable: true},
                     {"data": "actions", orderable: false, searchable: false}

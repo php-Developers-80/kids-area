@@ -115,6 +115,10 @@
             color: #dddddd;
         }
 
+        @page {
+
+            margin: 0;  /* this affects the margin in the printer settings */
+        }
         @media print {
             th {
                 background-color: rgb(4, 66, 102);
@@ -128,14 +132,18 @@
     </style>
 </head>
 
-<body>
+<body >
 <div >
-    <button id="printId" class="btn btn-success" onclick="window.print()">طباعة</button>
+    <button id="printId" class="btn btn-success" onclick="">طباعة</button>
 </div>
 <div class="print">
     <div class="container ">
         <div class="w-100 d-flex py-4">
             <img src="{{get_file(setting()->header_logo)}}" alt="" width="120px" height="120px" >
+        </div>
+        <div class="w-100 d-flex  mb-3">
+            <p> رقم الفاتورة : ({{$order->id}})</p>
+
         </div>
 
         <div class="w-100 d-flex  mb-3">
@@ -161,11 +169,11 @@
 
                 <div class="w-100 d-flex py-4">
                     <table>
-                        <tr>
-                            <th>إسم الطفل</th>
-                            <th>  وقت الدخول </th>
-                            <th>المدة</th>
-                            <th>وقت الخروج</th>
+                        <tr style="background: #918787">
+                            <td>إسم الطفل</td>
+                            <td>  وقت الدخول </td>
+                            <td>المدة</td>
+                            <td>وقت الخروج</td>
                         </tr>
 
                         @foreach($order->orderDetails as $orderDetail)
@@ -177,7 +185,7 @@
                             </tr>
                         @endforeach
 
-                        <tr style="text-align: center">
+                        <tr style="text-align: center;background: #918787">
                             <td colspan="4">المدفوعات</td>
                         </tr>
 
@@ -191,7 +199,7 @@
 
 
                         @if(count($order->add_ons)>0)
-                            <tr style="text-align: center">
+                            <tr style="text-align: center;background: #918787">
                                 <td colspan="4">الإضافات</td>
                             </tr>
 
@@ -204,7 +212,7 @@
                             @endforeach
                         @endif
 
-                        <tr style="text-align: center">
+                        <tr style="text-align: center;background: #918787">
                             <td colspan="4">الإجمالى</td>
                         </tr>
 
@@ -232,5 +240,15 @@
     </div>
 </div>
 </body>
+<script>
 
+    @if(isset(request()->print_now) && request()->print_now == 1)
+    window.print()
+    @endif
+    {{--console.log("{{url()->previous()}}")--}}
+    {{--    @if(url()->previous() == url('admin/cashier'))--}}
+    {{--    window.print()--}}
+    {{--    @endif--}}
+
+</script>
 </html>

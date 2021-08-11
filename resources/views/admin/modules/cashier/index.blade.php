@@ -284,7 +284,7 @@
                             delay:2000,
                         });
 
-                        window.open(data, '_blank');
+                        window.open(data+"?print_now=1", '_blank');
 
                         location.reload();
 
