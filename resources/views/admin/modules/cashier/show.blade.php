@@ -117,7 +117,7 @@
 
         @page {
 
-            margin: 0;  /* this affects the margin in the printer settings */
+            margin: 0;
         }
         @media print {
             th {
@@ -129,6 +129,9 @@
                 display: none;
             }
         }
+
+
+
     </style>
 </head>
 
@@ -239,16 +242,44 @@
         </div>
     </div>
 </div>
+
+<iframe name="printf" id="printf" style="display:none; margin: 0;@page {
+    size: auto;
+    margin: 20mm 0 10mm 0;
+} "></iframe>
 </body>
 <script>
 
+
+
     @if(isset(request()->print_now) && request()->print_now == 1)
+
+
+
     window.print()
+    function your_func(){
+        var id= "{{$order->id}}"
+        var body = `<h3 >رقم الفاتورة : ${id}<h3>
+<p>يتم استلام الطفل من خلال هذا الإيصال أو البطاقة الشخصية </p>
+`;
+
+
+        var cssLink = document.createElement("link");
+        cssLink.href = "{{asset('iframeStyle.css')}}";
+        cssLink.rel = "stylesheet";
+        cssLink.type = "text/css";
+        frames['printf'].document.head.appendChild(cssLink);
+
+        var newWin = document.getElementById('printf').contentWindow;
+        newWin.document.write(body);
+        newWin.document.close(); //important!
+
+        newWin.focus(); //IE fix
+        newWin.print();
+
+    }
+    setTimeout(function() { your_func(); }, 1000);
     @endif
-    {{--console.log("{{url()->previous()}}")--}}
-    {{--    @if(url()->previous() == url('admin/cashier'))--}}
-    {{--    window.print()--}}
-    {{--    @endif--}}
 
 </script>
 </html>
